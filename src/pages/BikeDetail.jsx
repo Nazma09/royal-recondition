@@ -180,33 +180,45 @@ function BikeDetail() {
         </div>
 
         {/* RELATED BIKES */}
-        {allBikes.filter(b => String(b.id) !== String(id)).length > 0 && (
-          <div className="mt-16">
-            <h2 className="text-3xl font-black text-white mb-6">Related Bikes</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {allBikes
-                .filter(b => String(b.id) !== String(id))
-                .slice(0, 3)
-                .map(item => (
-                  <div key={item.id} className="bg-gray-900 rounded-lg overflow-hidden border border-gray-800 hover:border-red-500 transition-all">
-                    {item.img ? (
-                      <img src={item.img} alt={item.name} className="h-52 w-full object-cover" />
-                    ) : (
-                      <div className="h-52 w-full bg-gray-800 flex items-center justify-center text-4xl">🏍️</div>
-                    )}
-                    <div className="p-4">
-                      <h3 className="text-white font-black text-lg">{item.name}</h3>
-                      <p className="text-red-500 font-bold mt-2">Rs. {item.price}</p>
-                      <Link to={`/bikes/${item.id}`}
-                        className="mt-4 inline-block bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded font-bold">
-                        View Details
-                      </Link>
-                    </div>
-                  </div>
-                ))}
+     {allBikes.filter(b => String(b.id) !== String(id)).length > 0 && (
+  <div className="mt-16">
+    <h2 className="text-3xl font-black text-white mb-6">Related Bikes</h2>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {allBikes
+        .filter(b => String(b.id) !== String(id))
+        .slice(0, 3)
+        .map(item => (
+          <div key={item.id} className="bg-gray-900 rounded-lg overflow-hidden border border-gray-800 hover:border-red-500 transition-all">
+            
+            {/* ✅ Video र Image दुवै support */}
+            {item.typeMedia === 'video' ? (
+              <video
+                src={item.img}
+                className="h-120 w-full object-cover"
+                muted
+                autoPlay
+                loop
+                playsInline
+              />
+            ) : item.img ? (
+              <img src={item.img} alt={item.name} className="h-52 w-full object-cover" />
+            ) : (
+              <div className="h-52 w-full bg-gray-800 flex items-center justify-center text-4xl">🏍️</div>
+            )}
+
+            <div className="p-4">
+              <h3 className="text-white font-black text-lg">{item.name}</h3>
+              <p className="text-red-500 font-bold mt-2">Rs. {item.price}</p>
+              <Link to={`/bikes/${item.id}`}
+                className="mt-4 inline-block bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded font-bold">
+                View Details
+              </Link>
             </div>
           </div>
-        )}
+        ))}
+    </div>
+  </div>
+)}
 
       </div>
     </div>

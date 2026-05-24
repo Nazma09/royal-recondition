@@ -73,9 +73,14 @@ function Bikes() {
                   {/* ✅ Image or Video */}
                   {bike.typeMedia === 'video' ? (
                     <video
-                      src={bike.img}
-                      className="w-full h-52 object-cover"
-                      muted
+                    src={bike.img}
+  className="w-full"
+  style={{ aspectRatio: '16/9' }}
+  muted
+  autoPlay
+  loop
+  playsInline
+  controls
                       onMouseOver={e => e.target.play()}
                       onMouseOut={e => { e.target.pause(); e.target.currentTime = 0 }}
                     />
