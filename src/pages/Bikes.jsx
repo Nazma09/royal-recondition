@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
+
 function Bikes() {
   const [bikes, setBikes] = useState([])
   const [filter, setFilter] = useState('all')
