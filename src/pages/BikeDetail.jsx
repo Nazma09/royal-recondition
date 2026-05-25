@@ -151,7 +151,7 @@ function BikeDetail() {
                   {item.typeMedia === 'video' ? (
                     <video src={item.img} className="h-120 w-full object-cover" muted autoPlay loop playsInline />
                   ) : item.img ? (
-                    <img src={item.img} alt={item.name} className="h-52 w-full object-cover" />
+                    <img src={item.img} alt={item.name} className="h-120 w-full object-cover" />
                   ) : (
                     <div className="h-52 w-full bg-gray-800 flex items-center justify-center text-4xl">🏍️</div>
                   )}

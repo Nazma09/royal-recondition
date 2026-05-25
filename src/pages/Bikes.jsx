@@ -83,7 +83,7 @@ function Bikes() {
                   </div>
                   <div className="flex justify-between items-center mt-3">
                     <p className="text-red-500 font-black text-xl">Rs. {bike.price}</p>
-                    <Link to={`/bikes/${bike.id}`}
+                    <Link to={`/bikes/${bike.firestoreId}`}       
                       className="bg-red-600 text-white px-4 py-2 rounded font-bold hover:bg-red-700 text-sm">
                       View Details
                     </Link>
